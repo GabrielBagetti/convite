@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 2em;
+            margin-top: 10%;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            position: relative;
+        }
+        .sim {
+            background-color: green;
+            color: white;
+            margin-top: 20px;
+        }
+        .sim:hover {
+            background-color: darkgreen;
+        }
+        .nao {
+            background-color: red;
+            color: white;
+            margin-top: 20px;
+        }
+        .nao:hover {
+            background-color: darkred;
+        }
+        .mensagem {
+            font-size: 1.5em;
+            margin-top: 40px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Oi linda, vc me daria uma chance de sair c vc? 😳</h1>
+<div>
+    <button class="sim" onclick="mostrarMensagem('ufa, pq eu to morrendo de sdds')">Sim</button>
+    <button class="nao" onmouseover="moverBotao()" onclick="mostrarMensagem('BABACA.')">Não</button>
+</div>
+<p class="mensagem" id="mensagem"></p>
+
+<script>
+    function moverBotao() {
+        const botaoNao = document.querySelector('.nao');
+        const larguraTela = window.innerWidth;
+        const alturaTela = window.innerHeight;
+
+        // Gera novas posições aleatórias, garantindo que o botão fique dentro da tela
+        const novaPosicaoX = Math.random() * (larguraTela - botaoNao.offsetWidth);
+        const novaPosicaoY = Math.random() * (alturaTela - botaoNao.offsetHeight);
+
+        // Define a nova posição do botão
+        botaoNao.style.position = 'absolute';
+        botaoNao.style.left = ${novaPosicaoX}px;
+        botaoNao.style.top = ${novaPosicaoY}px;
+    }
+
+    function mostrarMensagem(texto) {
+        const mensagem = document.getElementById('mensagem');
+        mensagem.textContent = texto;
+        mensagem.style.display = 'block';
+    }
+</script>
+</body>
+</html>
